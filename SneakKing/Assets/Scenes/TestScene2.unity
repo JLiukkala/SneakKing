@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ CapsuleCollider:
   m_Radius: 1.65
   m_Height: 8.15
   m_Direction: 1
-  m_Center: {x: 0, y: 4.3, z: 0}
+  m_Center: {x: 0, y: 4.2, z: 0}
 --- !u!54 &770679221
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1314,6 +1314,7 @@ MonoBehaviour:
   strafeWalkSpeed: 2.5
   strafeRunningSpeed: 3
   strafeSprintSpeed: 4
+  crouchSpeed: 0.8
   stepOffsetEnd: 0.45
   stepOffsetStart: 0.05
   stepSmooth: 4
