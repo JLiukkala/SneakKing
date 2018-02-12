@@ -1,0 +1,2 @@
+# SneakKing
+A sneaking game.
