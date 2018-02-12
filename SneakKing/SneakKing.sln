@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakKing", "SneakKing.csproj", "{DB11A109-3853-D0F7-B010-A5C030E3ADA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakKing.Editor", "SneakKing.Editor.csproj", "{581829EB-4864-A4A5-EEB4-8C6E40C54494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB11A109-3853-D0F7-B010-A5C030E3ADA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB11A109-3853-D0F7-B010-A5C030E3ADA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB11A109-3853-D0F7-B010-A5C030E3ADA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB11A109-3853-D0F7-B010-A5C030E3ADA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581829EB-4864-A4A5-EEB4-8C6E40C54494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581829EB-4864-A4A5-EEB4-8C6E40C54494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581829EB-4864-A4A5-EEB4-8C6E40C54494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581829EB-4864-A4A5-EEB4-8C6E40C54494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

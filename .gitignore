@@ -4,3 +4,7 @@
 *.dwlt
 
 *.log
+
+*.xml
+
+*.info
