@@ -5,8 +5,10 @@
 
 *.log
 
+SneakKing/Library/metadata/1a/
 *.info
 
-SneakKing/Library/metadata/1a/
+*.xml
+
 
 SneakKing/Library/metadata/48/
