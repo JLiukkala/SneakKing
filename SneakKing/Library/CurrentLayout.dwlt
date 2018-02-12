@@ -526,9 +526,14 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 982b0000
     m_LastClickedID: 11160
 >>>>>>> master
+=======
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+>>>>>>> Stashed changes
     m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -964,11 +969,15 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     m_ExpandedIDs: 00000000762700006e2800007e2800009e28000010290000302a00004a2a0000442b0000
 =======
     m_ExpandedIDs: 00000000942700005a2800008a280000fc280000362a0000
 >>>>>>> master
+=======
+    m_ExpandedIDs: 00000000942700005a280000fc280000d62a0000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
