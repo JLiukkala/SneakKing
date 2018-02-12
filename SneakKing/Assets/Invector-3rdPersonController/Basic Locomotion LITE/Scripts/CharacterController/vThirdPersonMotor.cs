@@ -70,6 +70,8 @@ namespace Invector.CharacterController
         public float strafeRunningSpeed = 3f;
         [Tooltip("Add extra speed for the locomotion movement, keep this value at 0 if you want to use only root motion speed.")]
         public float strafeSprintSpeed = 4f;
+        [Tooltip("Multiplier for reducing movement speed while crouched")]
+        public float crouchSpeed = 0.5f;
 
         [Header("--- Grounded Setup ---")]
 
@@ -228,7 +230,10 @@ namespace Invector.CharacterController
 
         private void CrouchMovement()
         {
-            speed = 0;
+
+            isSprinting = false;
+            FreeMovement();
+            //speed = 0;
         }
 
         void StrafeMovement()
@@ -247,6 +252,7 @@ namespace Invector.CharacterController
             speed = Mathf.Abs(input.x) + Mathf.Abs(input.y);            
             speed = Mathf.Clamp(speed, 0, 1f);
             // add 0.5f on sprint to change the animation on animator
+            //if (isCrouching) speed *= 0.5f;
             if (isSprinting) speed += 0.5f;
                         
             if (input != Vector2.zero && targetDirection.magnitude > 0.1f)
@@ -288,6 +294,7 @@ namespace Invector.CharacterController
                     v.y = _rigidbody.velocity.y;
                     _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, v, 20f * Time.deltaTime);
                 }
+                
                 else
                 {
                     _rigidbody.velocity = velY;

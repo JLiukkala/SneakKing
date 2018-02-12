@@ -24,14 +24,15 @@ namespace Invector.CharacterController
             }
 
             
-            // fre movement get the input 0 to 1
+            // free movement get the input 0 to 1
             animator.SetFloat("InputVertical", speed, 0.1f, Time.deltaTime);
 
-            if (isCrouching)
-            {
-                // strafe movement get the input 1 or -1
-                animator.SetFloat("InputVertical", direction, 0.0f, Time.deltaTime);
-            }
+            //if (isCrouching)
+            //{
+            //    // strafe movement get the input 1 or -1
+            //    animator.SetFloat("InputVertical", speed, 0.1f, Time.deltaTime);
+
+            //}
 
         }
 
@@ -67,6 +68,11 @@ namespace Invector.CharacterController
                     else
                         ControlSpeed(freeSprintSpeed);
                 }
+                if (isCrouching)
+                {
+                    ControlSpeed(crouchSpeed);
+                }
+
             }
         }
     }

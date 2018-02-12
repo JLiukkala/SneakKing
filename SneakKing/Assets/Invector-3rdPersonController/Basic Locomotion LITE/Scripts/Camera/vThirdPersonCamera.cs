@@ -31,7 +31,8 @@ public class vThirdPersonCamera : MonoBehaviour
     public LayerMask cullingLayer = 1 << 0;                
     [Tooltip("Debug purposes, lock the camera behind the character for better align the states")]
     public bool lockCamera;
-    
+
+    //public float cameraAngle = 0f;
     public float rightOffset = 0f;
     public float defaultDistance = 2.5f;
     public float height = 1.4f;
