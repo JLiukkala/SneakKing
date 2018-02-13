@@ -29,8 +29,8 @@ namespace Invector.CharacterController
         public KeyCode strafeInput = KeyCode.Tab;
         public KeyCode sprintInput = KeyCode.LeftShift;
         public KeyCode crouchInput = KeyCode.LeftControl;
+        public KeyCode pickupInput = KeyCode.E;
 
-        
 
         [Header("Camera Settings")]
         public string rotateCameraXInput ="Mouse X";
@@ -109,6 +109,7 @@ namespace Invector.CharacterController
                 StrafeInput();
                 JumpInput();
                 CrouchInput();
+                PickupInput();
             }
         }
 
@@ -124,6 +125,12 @@ namespace Invector.CharacterController
         {
             if (Input.GetKeyDown(crouchInput))
                 cc.Crouch();
+        }
+
+        protected virtual void PickupInput()
+        {
+            if (Input.GetKeyDown(pickupInput))
+                cc.PickUp();
         }
 
         protected virtual void StrafeInput()

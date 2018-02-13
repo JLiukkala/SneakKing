@@ -1273,6 +1273,7 @@ MonoBehaviour:
   strafeInput: 9
   sprintInput: 304
   crouchInput: 306
+  pickupInput: 101
   rotateCameraXInput: Mouse X
   rotateCameraYInput: Mouse Y
   rotateCameraXInputPad: Right stick X

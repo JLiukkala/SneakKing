@@ -30,6 +30,11 @@ namespace Invector.CharacterController
             isCrouching = !isCrouching;
         }
 
+        public virtual void PickUp()
+        {
+            animator.SetTrigger("Pickup");
+        }
+
         public virtual void Jump()
         {
             // conditions to do this action
