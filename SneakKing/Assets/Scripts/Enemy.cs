@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 1;
+    public static event System.Action OnEnemyHasSpottedPlayer;
+
+    public float speed = 0.15f;
     public float waitTime = 0.3f;
     public float turnSpeed = 90;
-    public float timeToSpotPlayer = 0.5f;
+    public float timeToSpotPlayer = 1;
 
     public Light visionCone;
     public float viewDistance;
@@ -19,6 +22,8 @@ public class Enemy : MonoBehaviour
     public Transform pathHolder;
     Transform player;
     Color originalVisionConeColor;
+
+    bool spotted;
 
     void Start()
     {
@@ -34,6 +39,8 @@ public class Enemy : MonoBehaviour
 
             StartCoroutine(FollowPath(waypoints));
         }
+
+        OnEnemyHasSpottedPlayer += IsSpotted;
     }
 
     void Update()
@@ -50,6 +57,22 @@ public class Enemy : MonoBehaviour
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         visionCone.color = Color.Lerp(originalVisionConeColor, Color.red, 
             playerVisibleTimer / timeToSpotPlayer);
+
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+            if (OnEnemyHasSpottedPlayer != null)
+            {
+                OnEnemyHasSpottedPlayer();
+            } 
+        }
+
+        if (spotted)
+        {
+            StartCoroutine(TurnToFace(player.position));
+            speed = speed * 1.05f;
+            Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            speed = 0;
+        }
     }
 
     bool CanSeePlayer()
@@ -110,6 +133,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void IsSpotted()
+    {
+        spotted = true;
+    }
+
     void OnDrawGizmos()
     {
         Vector3 startPosition = pathHolder.GetChild(0).position;
@@ -126,4 +154,9 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
     }
-}
+
+    void OnDestroy()
+    {
+        OnEnemyHasSpottedPlayer -= IsSpotted;
+    }
+} 

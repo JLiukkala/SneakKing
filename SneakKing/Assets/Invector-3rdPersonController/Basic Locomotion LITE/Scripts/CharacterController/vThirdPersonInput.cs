@@ -7,7 +7,6 @@ namespace Invector.CharacterController
 {
     public class vThirdPersonInput : MonoBehaviour
     {
-
         public enum InputType
         {
             Mouse_Keyboard,
