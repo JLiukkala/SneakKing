@@ -1849,7 +1849,7 @@ MonoBehaviour:
   speed: 0.15
   waitTime: 0.3
   turnSpeed: 90
-  timeToSpotPlayer: 1
+  timeToSpotPlayer: 0.5
   visionCone: {fileID: 1171288250}
   viewDistance: 10
   viewMask:
@@ -2291,7 +2291,7 @@ Light:
   m_Color: {r: 0.9300204, g: 1, b: 0.49264705, a: 1}
   m_Intensity: 8
   m_Range: 13
-  m_SpotAngle: 82
+  m_SpotAngle: 120
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -2322,7 +2322,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1171288249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.2, z: -0.49}
+  m_LocalPosition: {x: -0, y: -0.2, z: -0.495}
   m_LocalScale: {x: 1, y: 0.66, z: 1.2500002}
   m_Children: []
   m_Father: {fileID: 815871524}
