@@ -101,7 +101,9 @@ namespace Invector.CharacterController
             isStrafing,
             isSprinting,
             isSliding,
-            isCrouching;
+            isCrouching,
+            isBehindCover,
+            isPeeking;
 
         // action bools
         [HideInInspector]
@@ -218,14 +220,34 @@ namespace Invector.CharacterController
         {
             if (freeLocomotionConditions)
                 FreeMovement();     // free directional movement
-            else if (isCrouching== true)
+            else if (isCrouching && isBehindCover)
+            {
+
+                BehindCoverMovement();
+            }
+            else if (isCrouching== true) { 
 
                 CrouchMovement();
+            }
             // move forward, backwards, strafe left and right
             else {
                 StrafeMovement();
                 
             }
+        }
+
+        /// <summary>
+        /// Movement While behind cover hiding, Limit to one axis, 
+        /// No sprint
+        /// 
+        /// </summary>
+        private void BehindCoverMovement()
+        {
+
+            
+
+            //FreeMovement();
+            //speed = 0;
         }
 
         private void CrouchMovement()
@@ -249,10 +271,10 @@ namespace Invector.CharacterController
         public virtual void FreeMovement()
         {
             // set speed to both vertical and horizontal inputs
+            
             speed = Mathf.Abs(input.x) + Mathf.Abs(input.y);            
             speed = Mathf.Clamp(speed, 0, 1f);
             // add 0.5f on sprint to change the animation on animator
-            //if (isCrouching) speed *= 0.5f;
             if (isSprinting) speed += 0.5f;
                         
             if (input != Vector2.zero && targetDirection.magnitude > 0.1f)
