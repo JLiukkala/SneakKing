@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Invector.CharacterController
 {
@@ -26,8 +27,24 @@ namespace Invector.CharacterController
 
         public virtual void Crouch()
         {
-            if (locomotionType == LocomotionType.OnlyFree) return;
+            if (locomotionType == LocomotionType.OnlyStrafe) return;
             isCrouching = !isCrouching;
+        }
+
+        public virtual void Peek()
+        {
+            if (locomotionType == LocomotionType.OnlyStrafe) return;
+            if (isBehindCover) { 
+            isPeeking = !isPeeking;
+            }
+        }
+
+        public virtual void Hide()
+        {
+            if (locomotionType == LocomotionType.OnlyStrafe) return;
+            if (isCrouching) { 
+            isBehindCover = !isBehindCover;
+            }
         }
 
         public virtual void PickUp()
@@ -57,5 +74,7 @@ namespace Invector.CharacterController
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(newRotation), strafeRotationSpeed * Time.fixedDeltaTime);
             targetRotation = transform.rotation;
         }
+
+        
     }
 }

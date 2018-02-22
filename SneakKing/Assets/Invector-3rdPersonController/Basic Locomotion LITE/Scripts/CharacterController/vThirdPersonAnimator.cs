@@ -12,6 +12,8 @@ namespace Invector.CharacterController
             animator.SetBool("IsStrafing", isStrafing);
             animator.SetBool("IsGrounded", isGrounded);
             animator.SetBool("IsCrouching", isCrouching);
+            animator.SetBool("IsBehindCover", isBehindCover);
+            animator.SetBool("IsPeeking", isPeeking);
             animator.SetFloat("GroundDistance", groundDistance);
 
             if (!isGrounded)
@@ -27,12 +29,6 @@ namespace Invector.CharacterController
             // free movement get the input 0 to 1
             animator.SetFloat("InputVertical", speed, 0.1f, Time.deltaTime);
 
-            //if (isCrouching)
-            //{
-            //    // strafe movement get the input 1 or -1
-            //    animator.SetFloat("InputVertical", speed, 0.1f, Time.deltaTime);
-
-            //}
 
         }
 
@@ -68,7 +64,18 @@ namespace Invector.CharacterController
                     else
                         ControlSpeed(freeSprintSpeed);
                 }
-                if (isCrouching)
+                if (isCrouching && isBehindCover)
+                {
+                    animator.SetFloat("InputHorizontal", 0);
+                    animator.SetFloat("InputVertical", 0);
+                    ControlSpeed(crouchSpeed);
+                } else if (isCrouching && isBehindCover)
+                {
+                    animator.SetFloat("InputVertical", 0, 0.1f, Time.deltaTime);
+                    ControlSpeed(crouchSpeed);
+                }
+
+                else if (isCrouching)
                 {
                     ControlSpeed(crouchSpeed);
                 }

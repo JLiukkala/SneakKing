@@ -28,6 +28,8 @@ namespace Invector.CharacterController
         public KeyCode strafeInput = KeyCode.Tab;
         public KeyCode sprintInput = KeyCode.LeftShift;
         public KeyCode crouchInput = KeyCode.LeftControl;
+        public KeyCode hideInput = KeyCode.C;
+        public KeyCode peekInput = KeyCode.Q;
         public KeyCode pickupInput = KeyCode.E;
 
 
@@ -108,6 +110,8 @@ namespace Invector.CharacterController
                 StrafeInput();
                 JumpInput();
                 CrouchInput();
+                HideInput();
+                PeekInput();
                 PickupInput();
             }
         }
@@ -124,6 +128,18 @@ namespace Invector.CharacterController
         {
             if (Input.GetKeyDown(crouchInput))
                 cc.Crouch();
+        }
+
+        protected virtual void HideInput()
+        {
+            if (Input.GetKeyDown(hideInput))
+                cc.Hide();
+        }
+
+        protected virtual void PeekInput()
+        {
+            if (Input.GetKeyDown(peekInput))
+                cc.Peek();
         }
 
         protected virtual void PickupInput()
